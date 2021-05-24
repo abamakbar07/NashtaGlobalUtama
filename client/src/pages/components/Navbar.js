@@ -5,7 +5,7 @@ const NavBar = () => {
    return (
       <div className="Navbar">
          <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand href="/">Navbar Brand</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
