@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Col, Row, Form, Button } from 'react-bootstrap';
+import { Card, Col, Row, Form, Button, Container } from 'react-bootstrap';
 
 const FormAddEvent = () => {
    const [form, setForm] = useState({})
@@ -49,80 +49,82 @@ const FormAddEvent = () => {
    return (
      <div className="FormAddEvent">
        <Row className="justify-content-center p-0 m-0 pt-5">
-         <Card style={{ width: "50rem" }}>
-           <Row>
+         <Card style={{ width: "50rem", border: "none" }}>
+           <Row className="">
              <Col className="bg-light" md={6}>
-               <div className="text-left">+ Add Event</div>
-               <Form onSubmit={(e) => handleSubmit(e)}>
-                  <Form.Group as={Row}>
+               <Container className="pt-3">
+                 <div className="text-left pb-3">+ Add Event</div>
+                 <Form.Group onSubmit={(e) => handleSubmit(e)}>
+                   <Form.Group as={Row}>
                      <Col>
-                        <Form.Control
-                        type="text"
-                        placeholder="Title"
-                        onChange={(e) => setField("title", e.target.value)}
-                        isInvalid={!!errors.title}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                        {errors.title}
-                        </Form.Control.Feedback>
+                       <Form.Control
+                         type="text"
+                         placeholder="Title"
+                         onChange={(e) => setField("title", e.target.value)}
+                         isInvalid={!!errors.title}
+                       />
+                       <Form.Control.Feedback type="invalid">
+                         {errors.title}
+                       </Form.Control.Feedback>
                      </Col>
                      <Col>
-                        <Form.Control
-                        type="text"
-                        placeholder="Location"
-                        onChange={(e) => setField("location", e.target.value)}
-                        isInvalid={!!errors.location}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                        {errors.location}
-                        </Form.Control.Feedback>
+                       <Form.Control
+                         type="text"
+                         placeholder="Location"
+                         onChange={(e) => setField("location", e.target.value)}
+                         isInvalid={!!errors.location}
+                       />
+                       <Form.Control.Feedback type="invalid">
+                         {errors.location}
+                       </Form.Control.Feedback>
                      </Col>
-                  </Form.Group>
-                  <Form.Group as={Row}>
+                   </Form.Group>
+                   <Form.Group as={Row}>
                      <Col>
-                        <Form.Control
-                        type="text"
-                        placeholder="Participant"
-                        onChange={(e) => setField("participant", e.target.value)}
-                        isInvalid={!!errors.participant}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                        {errors.participant}
-                        </Form.Control.Feedback>
+                       <Form.Control
+                         type="text"
+                         placeholder="Participant"
+                         onChange={(e) =>
+                           setField("participant", e.target.value)
+                         }
+                         isInvalid={!!errors.participant}
+                       />
+                       <Form.Control.Feedback type="invalid">
+                         {errors.participant}
+                       </Form.Control.Feedback>
                      </Col>
                      <Col>
-                        <Form.Control
-                        type="date"
-                        placeholder="Date"
-                        onChange={(e) => setField("date", e.target.value)}
-                        isInvalid={!!errors.date}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                        {errors.date}
-                        </Form.Control.Feedback>
+                       <Form.Control
+                         type="date"
+                         placeholder="Date"
+                         onChange={(e) => setField("date", e.target.value)}
+                         isInvalid={!!errors.date}
+                       />
+                       <Form.Control.Feedback type="invalid">
+                         {errors.date}
+                       </Form.Control.Feedback>
                      </Col>
-                  </Form.Group>
-                  <Form.Group>
+                   </Form.Group>
+                   <Form.Group>
                      <Form.Control
-                        as="textarea"
-                        placeholder="Note"
-                        rows={3}
-                        onChange={(e) => setField("note", e.target.value)}
-                        isInvalid={!!errors.note}
+                       as="textarea"
+                       placeholder="Note"
+                       rows={3}
+                       onChange={(e) => setField("note", e.target.value)}
+                       isInvalid={!!errors.note}
                      />
                      <Form.Control.Feedback type="invalid">
-                        {errors.note}
+                       {errors.note}
                      </Form.Control.Feedback>
-                  </Form.Group>
+                   </Form.Group>
 
-                 <Button variant="primary" type="submit">
-                   Submit
-                 </Button>
-               </Form>
+                   <Button variant="primary" type="submit">
+                     Submit
+                   </Button>
+                 </Form.Group>
+               </Container>
              </Col>
-             <Col className="bg-primary" md={6}>
-
-             </Col>
+             <Col className="bg-primary" md={6}></Col>
            </Row>
          </Card>
        </Row>
