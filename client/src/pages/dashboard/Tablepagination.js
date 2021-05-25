@@ -58,16 +58,27 @@ const Tablepagination = () => {
 
    return (
       <Table striped bordered hover>
-         <h1>Welcome to GKTechy!</h1>
-
+         <ReactPaginate
+            previousLabel={"prev"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={state.pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={10}
+            onPageChange={(e) => handlePageClick(e)}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+         />
          <table>
             <thead>
-               <th>No</th>
-               <th>Title</th>
-               <th>Location</th>
-               <th>Date</th>
-               <th>Participant</th>
-               <th>Note</th>
+            <th>No</th>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Participant</th>
+            <th>Note</th>
             </thead>
             <tbody>
             {state.tableData.map((tdata, index) => (
@@ -82,20 +93,6 @@ const Tablepagination = () => {
             ))}
             </tbody>
          </table>
-
-         <ReactPaginate
-            previousLabel={"prev"}
-            nextLabel={"next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={state.pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={10}
-            onPageChange={(e) => handlePageClick(e)}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
-         />
       </Table>
    );
 }
