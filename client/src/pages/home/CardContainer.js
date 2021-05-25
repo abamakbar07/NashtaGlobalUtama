@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 
 const CardContainer = (props) => {
    const data = props.data
+   const participants = data.participant.split(",")
 
    return (
       <div className="CardContainer">
@@ -12,7 +13,13 @@ const CardContainer = (props) => {
                <div className="title Location">{data.location}</div>
                <div className="title Title">{data.title}</div>
                <div className="title Date">{data.date}</div>
-               <div className="desc Participant">{data.participant}</div>
+               <div className="desc Participant d-flex">
+                  {participants.map((participant) => (
+                     <div className="bg-dark text-white m-1 p-1">
+                        {participant}
+                     </div>
+                  ))}
+               </div>
                <div className="desc Note">{data.note}</div>
                <Button variant="primary">Go somewhere</Button>
             </Card.Body>
