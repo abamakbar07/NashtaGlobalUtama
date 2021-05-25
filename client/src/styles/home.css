@@ -1,0 +1,32 @@
+.Home .container {
+   overflow-x: auto;
+}
+
+.CardContainer .card {
+   width: 250px;
+   margin: 1rem;
+   text-align: left;
+}
+
+.CardContainer .Location {
+   font-size: 16px;
+   text-transform: uppercase;
+}
+
+.CardContainer .Title {
+   font-size: 24px;
+}
+
+.CardContainer .Date {
+   font-size: 16px;
+   color: grey;
+}
+
+.CardContainer .Participant {
+   border-top: solid 1px grey;
+   border-bottom: solid 1px grey;
+}
+
+.CardContainer .Note {
+   font-size: 13px;
+}
