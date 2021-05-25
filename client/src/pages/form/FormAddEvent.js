@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Card, Col, Row, Form, Button, Container } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom'
 import { API } from '../../config/api'
 
 const FormAddEvent = () => {
+  const history = useHistory()
   const [form, setForm] = useState({})
   const [errors, setErrors] = useState({});
 
@@ -75,7 +77,11 @@ const FormAddEvent = () => {
       setErrors(newErrors);
 
     } else {
-      API.post(`/task`, newForm, config).then((res) => alert(`Thank you for your feedback! ${res.data}`))
+      API.post(`/task`, newForm, config).then((res) => {
+        alert(`${res.data.message}`)
+        console.log(res.data)
+        history.push('/')
+      })
     }
   };
   

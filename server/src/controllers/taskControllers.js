@@ -22,7 +22,7 @@ exports.addTask = (req, res) => {
     .save()
     .then(() =>
       res.json({
-        message: "Created product successfully",
+        message: "Task successfully added!",
       })
     )
     .catch((err) =>
