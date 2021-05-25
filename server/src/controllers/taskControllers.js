@@ -7,14 +7,15 @@ exports.getTasks = async (req, res) => {
 };
 
 exports.addTask = (req, res) => {
-  const { title, location, date, participant, note, picture } = req.body;
+  const { body, files } = req
+  const { title, location, date, participant, note } = body;
   const newTask = new Task({
     title: title,
     location: location,
     date: date,
     participant: participant,
     note: note,
-    picture: picture,
+    picture: files.picture[0].filename,
   });
 
   newTask
