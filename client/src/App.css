@@ -33,7 +33,7 @@
   font-weight: bold;
 }
 
-.pagination__link--active a {
+.pagination .active a {
   color: #fff;
   background: #6c7ac9;
 }

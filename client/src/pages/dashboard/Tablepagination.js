@@ -47,6 +47,8 @@ const Tablepagination = () => {
 
         var slice = data.slice(state.offset, state.offset + state.perPage);
 
+        console.log(slice)
+
         setState({
           ...state,
           pageCount: Math.ceil(data.length / state.perPage),
@@ -57,43 +59,43 @@ const Tablepagination = () => {
    }, [])
 
    return (
-      <Table striped bordered hover>
-         <ReactPaginate
-            previousLabel={"prev"}
-            nextLabel={"next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={state.pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={10}
-            onPageChange={(e) => handlePageClick(e)}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
-         />
-         <table>
-            <thead>
-            <th>No</th>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Date</th>
-            <th>Participant</th>
-            <th>Note</th>
-            </thead>
-            <tbody>
-            {state.tableData.map((tdata, index) => (
-               <tr key={tdata._id}>
-                  <td>{index + (state.offset + 1)}</td>
-                  <td>{tdata.title}</td>
-                  <td>{tdata.location}</td>
-                  <td>{tdata.date}</td>
-                  <td>{tdata.participant}</td>
-                  <td>{tdata.note}</td>
-               </tr>
-            ))}
-            </tbody>
-         </table>
-      </Table>
+     <Table striped bordered hover>
+       <ReactPaginate
+         previousLabel={"←"}
+         nextLabel={"→"}
+         breakLabel={"..."}
+         breakClassName={"break-me"}
+         pageCount={state.pageCount}
+         marginPagesDisplayed={2}
+         pageRangeDisplayed={10}
+         onPageChange={(e) => handlePageClick(e)}
+         containerClassName={"pagination"}
+         subContainerClassName={"pages pagination"}
+         activeClassName={"active"}
+       />
+       <table>
+         <thead>
+           <th>No</th>
+           <th>Title</th>
+           <th>Location</th>
+           <th>Date</th>
+           <th>Participant</th>
+           <th>Note</th>
+         </thead>
+         <tbody>
+           {state.tableData.map((tdata, index) => (
+             <tr key={tdata._id}>
+               <td>{index + (state.offset + 1)}</td>
+               <td>{tdata.title}</td>
+               <td>{tdata.location}</td>
+               <td>{tdata.date.slice(0,10)}</td>
+               <td>{tdata.participant}</td>
+               <td>{tdata.note}</td>
+             </tr>
+           ))}
+         </tbody>
+       </table>
+     </Table>
    );
 }
 
