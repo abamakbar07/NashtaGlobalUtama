@@ -1,6 +1,6 @@
 # NASHTA GLOBAL UTAMA
 
-Project aplikasi pembuatan task, sebagai syarat untuk mengisi posisi posisi pekerjaan di PT.Nashta Global Utama [Create React App](https://github.com/facebook/create-react-app).
+Project aplikasi pembuatan task, sebagai syarat untuk mengisi posisi posisi pekerjaan di PT.Nashta Global Utama.
 
 ## Setup
 
