@@ -1,19 +1,20 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
+import CardContainer from './CardContainer';
 
 const Home = () => {
    const data = [
       {
          title: "Task pertama",
-         alamat: "Disini"
+         address: "Disini"
       },
       {
          title: "Task kedua",
-         alamat: "Disana"
+         address: "Disana"
       },
       {
          title: "Task ketiga",
-         alamat: "Disitu"
+         address: "Disitu"
       },
    ]
 
@@ -21,18 +22,7 @@ const Home = () => {
       <div className="Home bg-danger">
          <div className="pt-5 d-flex" style={{overflowX: "scroll"}}>
             {data.map(content => (
-               <div className="CardContainer">
-                  <Card style={{ width: "240px" }}>
-                     <Card.Img variant="top" src="holder.js/100px180" />
-                     <Card.Body>
-                        <Card.Title>{content.title}</Card.Title>
-                        <Card.Text>
-                           {content.alamat}
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                     </Card.Body>
-                  </Card>
-               </div>
+               <CardContainer title={content.title} address={content.address} />
             ))}
          </div>
       </div>
