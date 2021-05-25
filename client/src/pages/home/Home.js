@@ -1,5 +1,4 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
 import CardContainer from './CardContainer';
 
 const Home = () => {

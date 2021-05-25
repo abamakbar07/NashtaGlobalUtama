@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import { Table } from 'react-bootstrap';
 import { API } from '../../config/api';
