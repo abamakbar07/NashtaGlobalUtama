@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import { Table } from 'react-bootstrap';
+import { API } from '../../config/api';
 
 const Tablepagination = () => {
    const [refresh, setRefresh] = useState(0)
@@ -42,20 +43,17 @@ const Tablepagination = () => {
    useEffect(() => loadMoreData(), [refresh])
 
    useEffect(() => {
-      axios.get(`https://jsonplaceholder.typicode.com/comments`).then((res) => {
-         var data = res.data;
+      API.get(`/tasks`).then((res) => {
+        var data = res.data;
 
-         var slice = data.slice(
-            state.offset,
-            state.offset + state.perPage
-         );
+        var slice = data.slice(state.offset, state.offset + state.perPage);
 
-         setState({
-            ...state,
-            pageCount: Math.ceil(data.length / state.perPage),
-            orgtableData: res.data,
-            tableData: slice,
-         });
+        setState({
+          ...state,
+          pageCount: Math.ceil(data.length / state.perPage),
+          orgtableData: res.data,
+          tableData: slice,
+        });
       });
    }, [])
 
@@ -65,18 +63,22 @@ const Tablepagination = () => {
 
          <table>
             <thead>
-               <th>Id</th>
-               <th>Name</th>
-               <th>Email</th>
-               <th>Body</th>
+               <th>No</th>
+               <th>Title</th>
+               <th>Location</th>
+               <th>Date</th>
+               <th>Participant</th>
+               <th>Note</th>
             </thead>
             <tbody>
-            {state.tableData.map((tdata, i) => (
-               <tr key={tdata.id}>
-                  <td>{tdata.id}</td>
-                  <td>{tdata.name}</td>
-                  <td>{tdata.email}</td>
-                  <td>{tdata.body}</td>
+            {state.tableData.map((tdata, index) => (
+               <tr key={tdata._id}>
+                  <td>{index + (state.offset + 1)}</td>
+                  <td>{tdata.title}</td>
+                  <td>{tdata.location}</td>
+                  <td>{tdata.date}</td>
+                  <td>{tdata.participant}</td>
+                  <td>{tdata.note}</td>
                </tr>
             ))}
             </tbody>

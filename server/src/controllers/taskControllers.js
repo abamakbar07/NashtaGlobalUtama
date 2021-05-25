@@ -17,8 +17,6 @@ exports.addTask = (req, res) => {
     picture: picture,
   });
 
-  console.log(req.body)
-
   newTask
     .save()
     .then(() =>
